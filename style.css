@@ -417,37 +417,44 @@ body {
 .chat-box::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
 }
-
-/* Responsive Design */
+/* Responsive Design - Fixed input issue */
 @media (max-width: 768px) {
-  .chat-container {
-    height: 100vh;
-    max-width: 100%;
+  body, html {
+    height: 100%;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
     border-radius: 0;
+    margin: 0;
+  }
+
+  .chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    padding-bottom: 90px; /* space for input */
+    -webkit-overflow-scrolling: touch;
   }
 
   .chat-header {
-    padding: 16px 20px;
+    padding: 14px 18px;
   }
 
   .header-text h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .bot-avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .clear-btn span:not(.btn-icon) {
-    display: none;
-  }
-
-  .clear-btn {
-    padding: 10px;
-    min-width: 40px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 
   .message-bubble {
@@ -455,8 +462,37 @@ body {
     font-size: 14px;
   }
 
+  /* ✅ Fix: Input bar stays visible always */
   .chat-input-area {
-    padding: 16px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0f172a;
+    border-top: 1px solid #334155;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+  }
+
+  .chat-input {
+    flex: 1;
+    background: #1e293b;
+    color: #e2e8f0;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .send-btn, .clear-btn {
+    background: #334155;
+    color: #e2e8f0;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
   }
 
   .emoji-btn {
