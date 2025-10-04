@@ -100,6 +100,8 @@ function getBotResponse(userMessage) {
     }
     else if (message === "joke / mazaak sunao"){
       return "Teacher: Tum late kyu aye? Student: Sir, Bike ka tire panchar ho gya tha😂"
+    }else if (message === "bkl" || message === "bc" || message === "mc" || message === "lund" || message === "chutiya" || message ==="bsdk"){
+      return "Gali nhi dey beta 😡 "
     }
     else {
       return "I'm sorry, I didn't understand that. Can you plz rephrase"
